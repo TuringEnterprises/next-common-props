@@ -1,11 +1,11 @@
 {
-  "name": "next-common-props",
-  "version": "1.0.30",
+  "name": "@turingsagar/next-common-props",
+  "version": "1.0.33",
   "description": "Tiny and powerful tool (Next plugin + API) to let you avoid prop drilling and directly use props in any related component",
   "main": "./lib/cjs/index.js",
   "author": {
     "name": "Mukul Kumar",
-    "email": "mukulk133@gmail.com"
+    "email": "mukul.kumar@turing.com"
   },
   "license": "MIT",
   "private": false,
@@ -22,11 +22,11 @@
   ],
   "repository": {
     "type": "git",
-    "url": "https://github.com/developerKumar/next-common-props"
+    "url": "https://github.com/TuringEnterprises/next-common-props"
   },
   "bugs": {
-    "url": "https://github.com/developerKumar/next-common-props/issues",
-    "email": "mukulk133@gmail.com"
+    "url": "https://github.com/TuringEnterprises/next-common-props/issues",
+    "email": "mukul.kumar@turing.com"
   },
   "scripts": {
     "build": "yarn clean && cross-env NODE_ENV=production && yarn tsc",

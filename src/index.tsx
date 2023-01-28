@@ -13,7 +13,7 @@ export interface LoaderConfig {
 
 export interface NextCommonPropsLoader {
   key: string
-  data: <T = any>(context: GetStaticPropsContext) => Promise<T>
+  data: (context: GetStaticPropsContext) => Promise<any>
 }
 
 export interface NextCommonPropsConfigResult {

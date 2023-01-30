@@ -77,15 +77,16 @@ function templateWithLoader(
   let template = `
 
     ${tokenToReplace}
+    
+    import conf from '@next-common-root/common-props.config';
     export async function ${loader}(ctx) {
-      const conf = require('@next-common-root/common-props.config');
       let dProps = {};
       let currentPageConfig = [...(conf()['${currentPage}'] ? conf()['${currentPage}']  : []), ...(conf()['${
     NAMES.COMMON_FILE_NAME
   }'] || [])]
       if (currentPageConfig && currentPageConfig.length > 0) {
         for (let i = 0; i < currentPageConfig.length; i++) {
-          dProps[currentPageConfig[i].key] = await currentPageConfig[i].data()
+          dProps[currentPageConfig[i].key] = await currentPageConfig[i].data(ctx)
         }
         
       }

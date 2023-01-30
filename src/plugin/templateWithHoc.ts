@@ -32,7 +32,7 @@ export default function templateWithHoc(
   const currentPage = page.replace("/", "");
 
   let template = `
-    import appWithCommonProps from '@turingsagar/next-common-props/appWithCommonProps'
+    import appWithCommonProps from '@turingenterprises/next-common-props/appWithCommonProps'
     
     ${tokenToReplace}
     export default appWithCommonProps(__Page_Next_Common__, {

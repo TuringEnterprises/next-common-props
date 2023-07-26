@@ -14,6 +14,7 @@ export interface LoaderConfig {
 export interface NextCommonPropsLoader {
   key: string
   data: (context: GetStaticPropsContext) => Promise<any>
+  exclusion?: Record<string, boolean>;
 }
 
 export interface NextCommonPropsConfigResult {

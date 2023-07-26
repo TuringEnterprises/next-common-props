@@ -81,12 +81,23 @@ function templateWithLoader(
     import conf from '@next-common-root/common-props.config';
     export async function ${loader}(ctx) {
       let dProps = {};
-      let currentPageConfig = [...(conf()['${currentPage}'] ? conf()['${currentPage}']  : []), ...(conf()['${
-    NAMES.COMMON_FILE_NAME
-  }'] || [])]
-      if (currentPageConfig && currentPageConfig.length > 0) {
-        for (let i = 0; i < currentPageConfig.length; i++) {
-          dProps[currentPageConfig[i].key] = await currentPageConfig[i].data(ctx)
+      const config = conf();
+
+      const currentPageConfig = config['${currentPage}'] || [];
+      let commonConfig = config['${NAMES.COMMON_FILE_NAME}'] || [];
+
+      commonConfig = commonConfig.filter(func => {
+        if (func.exclusion && func.exclusion['${currentPage}']) {
+          return false;
+        }
+        return true;
+      });
+      
+      const functions = [...currentPageConfig, ...commonConfig];
+
+      if (functions && functions.length > 0) {
+        for (let i = 0; i < functions.length; i++) {
+          dProps[functions[i].key] = await functions[i].data(ctx)
         }
         
       }
